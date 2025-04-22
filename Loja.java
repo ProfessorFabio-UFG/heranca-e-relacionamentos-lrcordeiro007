@@ -1,24 +1,45 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Loja {
-    Cliente clientes[] = new Cliente[2];
-    Funcionario funcionarios[] = new Funcionario[2];
-    Fornecedor fornecedores[] = new Fornecedor[2];
-    public static void main(String[] args) {
+    private List<Funcionario> funcionarios = new ArrayList<>();
+    private List<Cliente> clientes = new ArrayList<>();
+    private List<Fornecedor> fornecedores = new ArrayList<>();
 
+    public void empregarFuncionario(Funcionario f) {
+        funcionarios.add(f);
     }
 
-    public void cadastrarCliente(){
-        Cliente clientes[] = new Cliente(null, null, null, null, 0, 0, 0, null, null);
+    public void demitirFuncionario(Funcionario f) {
+        funcionarios.remove(f);
     }
-    public void cadastrarFornecedor(){
-        Fornecedor fornecedores[] = new Fornecedor(String nome, String endereço, String telefone,String cnpj, String razaoSocial, String produto);
+
+    public void cadastrarCliente(Cliente c) {
+        clientes.add(c);
     }
-    public void empregarFuncionario(){
-        Funcionario funcionarios[] = new Funcionario();
+
+    public void cadastrarFornecedor(Fornecedor f) {
+        fornecedores.add(f);
     }
-    public void demitirFuncionario(){
-        
+
+    public void listarFuncionarios() {
+        System.out.println("Funcionários:");
+        for (Funcionario f : funcionarios) {
+            System.out.println(f);
+        }
     }
-    
+
+    public void listarClientes() {
+        System.out.println("Clientes:");
+        for (Cliente c : clientes) {
+            System.out.println(c);
+        }
+    }
+
+    public void listarFornecedores() {
+        System.out.println("Fornecedores:");
+        for (Fornecedor f : fornecedores) {
+            System.out.println(f);
+        }
+    }
 }
